@@ -1,75 +1,64 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.Random;
 import java.util.random.*;
+import javax.imageio.ImageIO.*;
 
-public class Game extends JFrame {
-    Random rand = new Random();
-    private CardLayout cardLayout = new CardLayout();
-    private JPanel cardPanel = new JPanel(cardLayout);
-    private JButton startButton = new JButton("Start");
-    private JPanel menuPanel = new JPanel();
-    private MapPanel mapPanel = new MapPanel();
-
-    public Game() {
-        setTitle("2D Game");
-        setSize(1280, 720);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new BorderLayout());
-        add(cardPanel, BorderLayout.CENTER);
-
-        // Main Menu Panel
-        menuPanel.add(startButton);
+public class Game extends JFrame{
+    
+    public static void main(String[] args){
         
+        new Game();
 
-        // Add Map Panel
-        cardPanel.add(mapPanel, "Map");
-        cardLayout.show(cardPanel, "Map");
-        //new Game().setVisible(true);
-
-        // Start Button Action
-        startButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                cardLayout.show(cardPanel, "Map");
-            }
-        });
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new Game().setVisible(true);
-            }   
-        });
-    }
-
-    // Custom Panel for Map
-    class MapPanel extends JPanel {
-        private String[] areas = {"City", "Forest", "Desert", "Mountains"};
-        private Color[] areaColors = {Color.GRAY, Color.BLUE, Color.YELLOW, Color.LIGHT_GRAY};
-
-        public MapPanel() {
-            setPreferredSize(new Dimension(800, 600));
+    //Below is written by Usman. Used to create the background image of the game.
+    public void createBackground(){
+    JFrame gameFrame = new JFrame("Protect The Country");
+    gameFrame.setSize(1280, 720);
+    
+    JPanel backgroundPanel = new JPanel();
+        try {
+            ImageIcon backgroundImage = new ImageIcon(ImageIO.read(new File("C:/Users/usman/OneDrive - Peel District School Board/temp ics/final/ProtectTheCountry/oldmap2.jpg")));
+            Image backgroundIMG = backgroundImage.getImage();
+            Image temp = backgroundIMG.getScaledInstance(1280,720,Image.SCALE_SMOOTH);
+            backgroundImage = new ImageIcon(temp);
+            JLabel back = new JLabel(backgroundImage);
+            backgroundPanel.add(back);
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
         }
+        
+        backgroundPanel.setVisible(true);
+        backgroundPanel.setLayout(null);
+        backgroundPanel.setBackground(Color.green);
+        this.setContentPane(backgroundPanel);
 
-        @Override
-        protected void paintComponent(Graphics g) {
-            super.paintComponent(g);
-            setBackground(Color.GREEN); // Green background for the map
-
-            // Draw each area as a small square
-            for (int i = 0; i < areas.length; i++) {
-                g.setColor(areaColors[i]);
-                int x = rand.nextInt(50, 1230);
-                int y = rand.nextInt(50, 670);
-                g.fillRect(x, y, 50, 50); // Adjust size and position as needed
-                g.setColor(Color.BLACK);
-                g.drawString(areas[i], x, y); // Label for the area
-            }
-        }
+        this.add(backgroundPanel);
+        this.setVisible(true);
     }
+
+
+
+    //Below is writting by Usman. This code is ran when the Game class is created.
+    public void initialization(){
+        this.setSize(1280,720);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setTitle("Protect The Country");
+        setLocationRelativeTo(null); // Center the frame on the screen
+    }
+
+
+    public Game(){
+
+        initialization();
+        createBackground();
+
+    }
+
 }
