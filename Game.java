@@ -2,8 +2,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
+import java.util.random.*;
 
 public class Game extends JFrame {
+    Random rand = new Random();
     private CardLayout cardLayout = new CardLayout();
     private JPanel cardPanel = new JPanel(cardLayout);
     private JButton startButton = new JButton("Start");
@@ -47,7 +50,7 @@ public class Game extends JFrame {
     // Custom Panel for Map
     class MapPanel extends JPanel {
         private String[] areas = {"City", "Forest", "Desert", "Mountains"};
-        private Color[] areaColors = {Color.GRAY, Color.GREEN, Color.YELLOW, Color.LIGHT_GRAY};
+        private Color[] areaColors = {Color.GRAY, Color.BLUE, Color.YELLOW, Color.LIGHT_GRAY};
 
         public MapPanel() {
             setPreferredSize(new Dimension(800, 600));
@@ -61,9 +64,11 @@ public class Game extends JFrame {
             // Draw each area as a small square
             for (int i = 0; i < areas.length; i++) {
                 g.setColor(areaColors[i]);
-                g.fillRect(50 + i * 100, 250, 50, 50); // Adjust size and position as needed
+                int x = rand.nextInt(50, 1230);
+                int y = rand.nextInt(50, 670);
+                g.fillRect(x, y, 50, 50); // Adjust size and position as needed
                 g.setColor(Color.BLACK);
-                g.drawString(areas[i], 50 + i * 100, 245); // Label for the area
+                g.drawString(areas[i], x, y); // Label for the area
             }
         }
     }
