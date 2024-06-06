@@ -4,6 +4,7 @@ import java.awt.*;
 import java.io.FileWriter;
 import java.io.IOException;
 
+//this is used when first opening up the program
 class Login extends JFrame {
     public static void main(String[] args) {
         JFrame f = new JFrame("Protect The City!; Login");
