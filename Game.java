@@ -57,7 +57,7 @@ public class Game extends JFrame{
         }
 
         // Ensure that the city is in the middle of the map
-        locationCoordsY[0] = 590;
+        locationCoordsX[0] = 590;
         locationCoordsY[0] = 310;
 
     }

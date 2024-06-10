@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class GameButtons extends JPanel {
 
@@ -11,7 +12,7 @@ public class GameButtons extends JPanel {
 
     public void exitBut(){
         extBtn = new JButton("X");
-        extBtn.setBounds(5,5,50,30);
+        extBtn.setBounds(5,65,50,30);
         extBtn.setBorder(new RoundedBorder(20));
         this.setLayout(null);
         this.add(watBtn);
@@ -19,7 +20,7 @@ public class GameButtons extends JPanel {
 
     public void waterBut(){
         watBtn = new JButton("Water Dam");
-        watBtn.setBounds(1150, 620, 120, 60);
+        watBtn.setBounds(1140, 20, 120, 60);
         watBtn.setBorder(new RoundedBorder(20));
         this.setLayout(null);
         this.add(watBtn);
@@ -27,7 +28,7 @@ public class GameButtons extends JPanel {
 
     public void riverBut(){
         rivBtn = new JButton("River Dam");
-        rivBtn.setBounds(1025, 620, 120, 60);
+        rivBtn.setBounds(1015, 20, 120, 60);
         rivBtn.setBorder(new RoundedBorder(20));
         this.setLayout(null);
         this.add(rivBtn);
@@ -35,7 +36,7 @@ public class GameButtons extends JPanel {
 
     public void fireBut(){
         fireBtn = new JButton("Firefighters");
-        fireBtn.setBounds(900, 620, 120, 60);
+        fireBtn.setBounds(890, 20, 120, 60);
         fireBtn.setBorder(new RoundedBorder(20));
         this.setLayout(null);
         this.add(fireBtn);
@@ -43,7 +44,7 @@ public class GameButtons extends JPanel {
 
     public void earthBut(){
         earBtn = new JButton("Earthquake Alarm");
-        earBtn.setBounds(730, 620, 165, 60);
+        earBtn.setBounds(720, 20, 165, 60);
         earBtn.setBorder(new RoundedBorder(20));        
         this.setLayout(null);
         this.add(earBtn);
@@ -51,7 +52,7 @@ public class GameButtons extends JPanel {
 
     public void airBut(){
         airBtn = new JButton("Tornado Siren");
-        airBtn.setBounds(575, 620, 150, 60);
+        airBtn.setBounds(565, 20, 150, 60);
         airBtn.setBorder(new RoundedBorder(20));        
         this.setLayout(null);
         this.add(airBtn);
@@ -62,6 +63,9 @@ public class GameButtons extends JPanel {
     }
 
     public GameButtons() {
+
+        this.setPreferredSize(new Dimension(1280, 100));
+
         waterBut();
         this.add(watBtn);
 
@@ -81,13 +85,4 @@ public class GameButtons extends JPanel {
         this.add(extBtn);
 
     }
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("Game Buttons");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1280, 720);
-        frame.add(new GameButtons());
-        frame.setVisible(true);
-        frame.setLayout(null);
-
-    };
 }
