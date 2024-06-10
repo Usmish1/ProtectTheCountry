@@ -4,6 +4,7 @@ import java.awt.*;
 import java.io.FileWriter;
 import java.io.IOException;
 
+//zohair
 class Login extends JFrame {
     public static void main(String[] args) {
         JFrame f = new JFrame("Protect The City!; Login");
@@ -50,7 +51,7 @@ class Login extends JFrame {
                     public void actionPerformed(ActionEvent e) {
                         try {
                             FileWriter writer = new FileWriter("logininfo.txt", true);
-                            writer.write("Username: " + data + "\n");
+                            writer.write(data + "\n");
                             writer.close();
                             System.out.println("New login credentials appended to logininfo.txt");
                         } catch (IOException x) {

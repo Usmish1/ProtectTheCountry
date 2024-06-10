@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
+//zohair
 public class stats {
+
     public static void main(String[] args) {
         List<String> userNames = readUserNamesFromFile("logininfo.txt");
         displayUserNamesInMessageBox(userNames);
@@ -26,10 +28,9 @@ public class stats {
 
     private static void displayUserNamesInMessageBox(List<String> userNames) {
         StringBuilder sb = new StringBuilder();
-        sb.append("User Names:\n");
-        for (String userName : userNames) {
-            sb.append("- ").append(userName).append("\n");
+        for (int i = 0; i < userNames.size(); i++) {
+            sb.append((i + 1) + ". ").append(userNames.get(i)).append("\n");
         }
-        JOptionPane.showMessageDialog(null, sb.toString(), "User Names", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, sb.toString(), "Stats", JOptionPane.INFORMATION_MESSAGE);
     }
 }
