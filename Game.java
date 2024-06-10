@@ -52,6 +52,7 @@ public class Game extends JFrame{
     //     this.setVisible(true);
     // }
 
+    //Written by Usman.
     public void createBackground(){
 
         JPanel backgroundPanel = new JPanel();
@@ -89,9 +90,7 @@ public class Game extends JFrame{
             setBackground(Color.GREEN); // Green background for the map
 
             String[] Locations = {"City", "River", "Forest", "Ocean"};
-            Color[] locationColors = {Color.DARK_GRAY, new Color(0, 0, 255), new Color(1, 50, 32), new Color(0, 0, 139)};
-            int[] locationCoordsX = new int[4];
-            int[] locationCoordsY = new int[4];
+            Color[] locationColours = {Color.DARK_GRAY, new Color(0, 0, 255), new Color(1, 50, 32), new Color(0, 0, 139)};
 
             // Draw each area as a small square
             
@@ -101,6 +100,7 @@ public class Game extends JFrame{
                 int x = locationCoordsX[i];
                 int y = locationCoordsY[i];
 
+                g.setColor(locationColours[i]);
                 g.fillRect(x, y, 50, 50); // Adjust size and position as needed
                 g.setColor(Color.BLACK);
                 g.drawString(Locations[i], x, y-5); // Label for the area
@@ -108,8 +108,6 @@ public class Game extends JFrame{
 
             for (int i = 0; i < 4; i++){
                 System.out.println(locationCoordsX[i] + " " + locationCoordsY[i]);
-                g.fillRect(locationCoordsX[i], locationCoordsY[i], 5, 5);
-                g.drawString(locationCoordsX[i] + " " + locationCoordsY[i], locationCoordsX[i], locationCoordsY[i]-20);
             }
         }
 
