@@ -8,6 +8,7 @@ public class GameButtons extends JPanel {
     JButton fireBtn;
     JButton earBtn;
     JButton airBtn;
+
     public void waterBut(){
         watBtn = new JButton("Water Dam");
         watBtn.setBounds(1150, 620, 120, 60);
@@ -18,7 +19,7 @@ public class GameButtons extends JPanel {
 
     public void riverBut(){
         rivBtn = new JButton("River Dam");
-        rivBtn.setBounds(950, 620, 120, 60);
+        rivBtn.setBounds(1025, 620, 120, 60);
         rivBtn.setBorder(new RoundedBorder(20));
         this.setLayout(null);
         this.add(rivBtn);
@@ -26,15 +27,15 @@ public class GameButtons extends JPanel {
 
     public void fireBut(){
         fireBtn = new JButton("Firefighters");
-        fireBtn.setBounds(100, 100, 120, 60);
+        fireBtn.setBounds(900, 620, 120, 60);
         fireBtn.setBorder(new RoundedBorder(20));
         this.setLayout(null);
         this.add(fireBtn);
     }
 
     public void earthBut(){
-        earBtn = new JButton("Earthquake alarm");
-        earBtn.setBounds(100, 100, 120, 60);
+        earBtn = new JButton("Earthquake Alarm");
+        earBtn.setBounds(730, 620, 165, 60);
         earBtn.setBorder(new RoundedBorder(20));        
         this.setLayout(null);
         this.add(earBtn);
@@ -42,7 +43,7 @@ public class GameButtons extends JPanel {
 
     public void airBut(){
         airBtn = new JButton("Tornado Siren");
-        airBtn.setBounds(100, 100, 120, 60);
+        airBtn.setBounds(575, 620, 150, 60);
         airBtn.setBorder(new RoundedBorder(20));        
         this.setLayout(null);
         this.add(airBtn);
@@ -67,7 +68,7 @@ public class GameButtons extends JPanel {
         this.setBounds(0, 0, 1280, 720);
 
         riverBut();
-        this.add(earBtn);
+        this.add(rivBtn);
         this.setBounds(0, 0, 1280, 720);
 
         earthBut();  
@@ -85,11 +86,11 @@ public class GameButtons extends JPanel {
     }
     public static void main(String[] args) {
         JFrame frame = new JFrame("Game Buttons");
-        frame.setLayout(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1280, 720);
         frame.add(new GameButtons());
         frame.setVisible(true);
+        frame.setLayout(null);
 
     };
 }
