@@ -9,13 +9,14 @@ import java.util.Random;
 
 public class Game extends JFrame{
 
+    //Usman
     Random rand = new Random();
-
-
     String[] Locations = {"City", "River", "Forest", "Ocean"};
     Color[] locationColors = {Color.DARK_GRAY, new Color(0, 0, 255), new Color(1, 50, 32), new Color(0, 0, 139)};
     int[] locationCoordsX = new int[4];
     int[] locationCoordsY = new int[4];   
+
+    int score = 0;
     
 
     public static void main(String[] args){
@@ -23,34 +24,6 @@ public class Game extends JFrame{
         new Game();
 
     }
-
-    //Below is written by Usman. Used to create the background image of the game. Currently doesn't work.
-    // public void createBackgroundImage(){
-    //     JPanel backgroundPanel = new JPanel();
-    //     try {
-    //         File file = new File("oldmap2.jpg");
-    //         System.out.println("File exists: " + file.exists());
-    //         System.out.println("File size: " + file.length() + " bytes");
-    //         file.setReadable(true);
-    //         Image backgroundImage = ImageIO.read(file);
-    //         Image temp = backgroundImage.getScaledInstance(1280,720,Image.SCALE_SMOOTH);
-    //         ImageIcon imageIcon = new ImageIcon(temp);
-    //         JLabel back = new JLabel(imageIcon);
-    //         backgroundPanel.add(back);
-    //     } catch (IOException e) {
-    //         e.printStackTrace();
-    //         System.out.println(e.getMessage());
-    //     }
-
-    //     this.setBackground(darkGreen);
-        
-    //     backgroundPanel.setVisible(true);
-    //     backgroundPanel.setLayout(null);
-    //     backgroundPanel.setBackground(Color.green);
-    //     // this.setContentPane(backgroundPanel);
-    //     // this.add(backgroundPanel);
-    //     this.setVisible(true);
-    // }
 
     //Written by Usman.
     public void createBackground(){
@@ -78,6 +51,10 @@ public class Game extends JFrame{
             locationCoordsX[i] = rand.nextInt(50, 1200);
             locationCoordsY[i] = rand.nextInt(50, 620);
         }
+
+        // Ensure that the city is in the middle of the map
+        locationCoordsY[0] = 590;
+        locationCoordsY[0] = 310;
 
     }
 
@@ -114,6 +91,12 @@ public class Game extends JFrame{
     }
 
 
+    public void startGame(){
+
+
+
+    }
+
     public Game(){
 
         initialization();
@@ -121,6 +104,8 @@ public class Game extends JFrame{
         mapPanel map = new mapPanel();
         this.add(map);
         this.setVisible(true);
+
+        
 
     }
 
