@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
 public class GameButtons extends JPanel {
 
@@ -9,8 +10,10 @@ public class GameButtons extends JPanel {
     JButton earBtn;
     JButton airBtn;
     JButton extBtn;
+    Clicklistener click= new Clicklistener();
 
     public void exitBut(){
+        
         extBtn = new JButton("X");
         extBtn.setBounds(5,65,50,30);
         extBtn.setBorder(new RoundedBorder(20));
@@ -38,6 +41,7 @@ public class GameButtons extends JPanel {
         fireBtn = new JButton("Firefighters");
         fireBtn.setBounds(890, 20, 120, 60);
         fireBtn.setBorder(new RoundedBorder(20));
+        fireBtn.addActionListener(click);
         this.setLayout(null);
         this.add(fireBtn);
     }
@@ -64,6 +68,7 @@ public class GameButtons extends JPanel {
 
     public GameButtons() {
 
+        Clicklistener click= new Clicklistener();
         this.setPreferredSize(new Dimension(1280, 100));
 
         waterBut();
@@ -85,4 +90,14 @@ public class GameButtons extends JPanel {
         this.add(extBtn);
 
     }
+
+    private class Clicklistener implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            if (e.getSource() == fireBtn){
+                System.out.println("Fire clicked");
+            }
+
+        }
+    }
+
 }
