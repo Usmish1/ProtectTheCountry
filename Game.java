@@ -40,10 +40,14 @@ public class Game extends JFrame{
 
     //Below is writting by Usman. This code is ran when the Game class is created.
     public void initialization(){
-        this.setSize(1280,720);
+        this.setSize(1280, 800);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Protect The Country");
         this.setResizable(false);
+        this.setLayout(new BorderLayout());
+        GameButtons gameeButtons = new GameButtons();
+        this.add(gameeButtons, BorderLayout.SOUTH);
+
         setLocationRelativeTo(null); // Center the frame on the screen
 
 
@@ -102,7 +106,8 @@ public class Game extends JFrame{
         initialization();
         createBackground();
         mapPanel map = new mapPanel();
-        this.add(map);
+        this.add(map, BorderLayout.CENTER);
+
         this.setVisible(true);
 
         
