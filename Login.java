@@ -41,6 +41,7 @@ class Login extends JFrame {
         f.setSize(400, 400);
         f.setLayout(null);
         f.setVisible(true);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         b.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

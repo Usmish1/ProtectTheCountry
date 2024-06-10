@@ -47,6 +47,7 @@ public class Game extends JFrame{
         this.setLayout(new BorderLayout());
         GameButtons gameeButtons = new GameButtons();
         this.add(gameeButtons, BorderLayout.SOUTH);
+    
 
         setLocationRelativeTo(null); // Center the frame on the screen
 
@@ -109,6 +110,9 @@ public class Game extends JFrame{
         this.add(map, BorderLayout.CENTER);
 
         this.setVisible(true);
+
+        //following line of code is by zohair
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         
 
