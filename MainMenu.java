@@ -48,7 +48,6 @@ class MainMenu extends JFrame {
         p.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new Game();
-                Game.main(args);
                 SwingUtilities.getWindowAncestor((Component) e.getSource()).dispose();
             }
         });
