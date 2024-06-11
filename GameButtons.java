@@ -100,17 +100,6 @@ public class GameButtons extends JPanel {
         public void actionPerformed(ActionEvent e){
 
             //If the fire button is clicked
-            if (e.getSource() == watBtn){
-                System.out.println("Water clicked");
-            }
-
-            if (e.getSource() == rivBtn){
-                System.out.println("River clicked");
-            }
-
-            if (e.getSource() == earBtn){
-                System.out.println("Earth clicked");
-            }
 
             if (e.getSource() == fireBtn){
                 JOptionPane.showMessageDialog(null, "Fire Fighters are now Stronger!!");
@@ -133,13 +122,6 @@ public class GameButtons extends JPanel {
                 System.out.println("Water clicked");
             }
 
-            if (e.getSource() == airBtn){
-                System.out.println("Air clicked");
-            }
-
-            if (e.getSource() == extBtn){
-                System.out.println("Exit clicked");
-            }
     }
 
     }
