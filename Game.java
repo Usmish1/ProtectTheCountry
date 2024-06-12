@@ -12,16 +12,21 @@ public class Game extends JFrame{
     //Usman
     Random rand = new Random();
     String[] Locations = {"City", "River", "Forest", "Ocean"};
-    Color[] locationColors = {Color.DARK_GRAY, new Color(0, 0, 255), new Color(1, 50, 32), new Color(0, 0, 139)};
-    int[] locationCoordsX = new int[4];
+    static Color[] locationColours = {Color.DARK_GRAY, new Color(0, 0, 255), new Color(1, 50, 32), new Color(0, 0, 139)};
+    static int[] locationCoordsX = new int[4];
     int[] locationCoordsY = new int[4];   
 
     int score = 0;
+    static Game game;
+    static mapPanel map;
+    static boolean havePurchase = false;
+    static boolean haveFighters = false;
+    static boolean haveDam = false;
     
 
     public static void main(String[] args){
         
-        new Game();
+        game = new Game();
 
     }
 
@@ -54,7 +59,7 @@ public class Game extends JFrame{
 
         for (int i = 0; i < 4; i++){
             locationCoordsX[i] = rand.nextInt(50, 1200);
-            locationCoordsY[i] = rand.nextInt(50, 620);
+            locationCoordsY[i] = rand.nextInt(50, 600);
         }
 
         // Ensure that the city is in the middle of the map
@@ -71,8 +76,6 @@ public class Game extends JFrame{
             super.paintComponent(g);
             setBackground(Color.GREEN); // Green background for the map
 
-            String[] Locations = {"City", "River", "Forest", "Ocean"};
-            Color[] locationColours = {Color.DARK_GRAY, new Color(0, 0, 255), new Color(1, 50, 32), new Color(0, 0, 139)};
 
             // Draw each area as a small square
             
@@ -88,6 +91,15 @@ public class Game extends JFrame{
                 g.drawString(Locations[i], x, y-5); // Label for the area
         }
 
+        //If any text should be displayed
+        if (havePurchase){
+            if (haveFighters){
+                g.setColor(Color.BLACK);
+                g.drawString("Fire Fighters are protecting this area!", locationCoordsX[2]-50, locationCoordsY[2]+65);
+            }
+
+        }
+
             for (int i = 0; i < 4; i++){
                 System.out.println(locationCoordsX[i] + " " + locationCoordsY[i]);
             }
@@ -95,18 +107,25 @@ public class Game extends JFrame{
 
     }
 
-
-    public void startGame(){
-
-
-
+    //Written by Usman. Used randomly at the start of a round.
+    public static void startFire(){
+        locationColours[2] = new Color(255, 165, 0);
+        map.repaint();
+        System.out.println("Starting Fire");
     }
+
+    public static void buyFireFighters(){
+        havePurchase = true;
+        haveFighters = true;
+        map.repaint();
+    }
+
 
     public Game(){
 
         initialization();
         createBackground();
-        mapPanel map = new mapPanel();
+        map = new mapPanel();
         this.add(map, BorderLayout.CENTER);
 
         this.setVisible(true);
