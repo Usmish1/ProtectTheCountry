@@ -2,28 +2,30 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.awt.*;
 
-//usman
+//zohair
 class MainMenu extends JFrame {
-    public void main(String[] args) {
-        JFrame f = new JFrame("PROTECTTHECITY");
 
-        f.setSize(1280, 720);
-        f.setLayout(null);
+    //
+    public void main(String[] args) {
+        JFrame frame = new JFrame("PROTECTTHECITY");
+
+        frame.setSize(1280, 720);
+        frame.setLayout(null);
 
         JButton exit = new JButton("close");
         exit.setBounds(1225, 672, 50, 15);
 
-        JButton p = new JButton("Play");
-        p.setBounds(465, 250, 360, 120);
-        p.setFont(new Font("Comic Sans MS", Font.PLAIN, 26));
+        JButton play = new JButton("Play");
+        play.setBounds(465, 250, 360, 120);
+        play.setFont(new Font("Comic Sans MS", Font.PLAIN, 26));
 
-        JButton h = new JButton("Help");
-        h.setBounds(465, 400, 360, 120);
-        h.setFont(new Font("Comic Sans MS", Font.PLAIN, 26));
+        JButton helpTab = new JButton("Help");
+        helpTab.setBounds(465, 400, 360, 120);
+        helpTab.setFont(new Font("Comic Sans MS", Font.PLAIN, 26));
 
-        JButton s = new JButton("Stats");
-        s.setBounds(465, 550, 360, 120);
-        s.setFont(new Font("Comic Sans MS", Font.PLAIN, 26));
+        JButton statsTab = new JButton("Stats");
+        statsTab.setBounds(465, 550, 360, 120);
+        statsTab.setFont(new Font("Comic Sans MS", Font.PLAIN, 26));
 
         JLabel title;
         title = new JLabel("PROTECT THE CITY!");
@@ -34,18 +36,18 @@ class MainMenu extends JFrame {
         JLabel imageLabel = new JLabel(image1);
         imageLabel.setBounds(0, 0, 1280, 720);
 
-        f.add(imageLabel);
-        f.add(s);
-        f.add(title);
-        f.add(h);
-        f.add(exit);
-        f.add(p);
+        frame.add(imageLabel);
+        frame.add(statsTab);
+        frame.add(title);
+        frame.add(helpTab);
+        frame.add(exit);
+        frame.add(play);
        
-        f.setVisible(true);
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
-        p.addActionListener(new ActionListener() {
+        play.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new Game();
                 Game.main(args);
@@ -53,13 +55,13 @@ class MainMenu extends JFrame {
             }
         });
 
-        h.addActionListener(new ActionListener() {
+        helpTab.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 help.main(args);
             }
         });
 
-        s.addActionListener(new ActionListener() {
+        statsTab.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 stats.main(args);
             }

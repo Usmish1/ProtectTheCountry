@@ -2,6 +2,8 @@ import javax.swing.JOptionPane;
 
 //Zohair
 public class help {
+
+    //popup message that explains how the game works
     public static void main(String[] args) {
         JOptionPane.showMessageDialog(null, "Welcome To Protect the City!\n" + "\n" + 
         "Here's how the game works. When the game is started you will be will be presented with a map \n" + 

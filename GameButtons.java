@@ -2,8 +2,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+//following code is from zohair
 public class GameButtons extends JPanel {
 
+    //initializing all the Jbuttons
     JButton watBtn;
     JButton rivBtn;
     JButton fireBtn;
@@ -12,6 +14,7 @@ public class GameButtons extends JPanel {
     JButton extBtn;
     Clicklistener click= new Clicklistener();
 
+    //setting up each button to a set size and text
     public void exitBut(){
         
         extBtn = new JButton("X");
@@ -67,13 +70,10 @@ public class GameButtons extends JPanel {
         this.add(airBtn);
     }
 
-    public void confirmBut(){
 
-    }
-
+    //this will add all the buttons to be able to be used
     public GameButtons() {
 
-        Clicklistener click = new Clicklistener();
         this.setPreferredSize(new Dimension(1280, 100));
 
         waterBut();
@@ -96,6 +96,7 @@ public class GameButtons extends JPanel {
 
     }
 
+    //This class determins the function of each button
     private class Clicklistener implements ActionListener{
         public void actionPerformed(ActionEvent e){
             if (e.getSource() == fireBtn){
