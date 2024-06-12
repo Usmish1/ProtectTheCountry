@@ -19,7 +19,6 @@ public class GameButtons extends JPanel {
         
         extBtn = new JButton("X");
         extBtn.setBounds(5,65,50,30);
-        extBtn.setBorder(new RoundedBorder(20));
         extBtn.addActionListener(click);
         this.setLayout(null);
         this.add(watBtn);
@@ -28,7 +27,6 @@ public class GameButtons extends JPanel {
     public void waterBut(){
         watBtn = new JButton("Water Dam");
         watBtn.setBounds(1140, 20, 120, 60);
-        watBtn.setBorder(new RoundedBorder(20));
         watBtn.addActionListener(click);
         this.setLayout(null);
         this.add(watBtn);
@@ -37,7 +35,6 @@ public class GameButtons extends JPanel {
     public void riverBut(){
         rivBtn = new JButton("River Dam");
         rivBtn.setBounds(1015, 20, 120, 60);
-        rivBtn.setBorder(new RoundedBorder(20));
         rivBtn.addActionListener(click);
         this.setLayout(null);
         this.add(rivBtn);
@@ -46,7 +43,6 @@ public class GameButtons extends JPanel {
     public void fireBut(){
         fireBtn = new JButton("Firefighters");
         fireBtn.setBounds(890, 20, 120, 60);
-        fireBtn.setBorder(new RoundedBorder(20));
         fireBtn.addActionListener(click);
         this.setLayout(null);
         this.add(fireBtn);
@@ -55,7 +51,6 @@ public class GameButtons extends JPanel {
     public void earthBut(){
         earBtn = new JButton("Earthquake Alarm");
         earBtn.setBounds(720, 20, 165, 60);
-        earBtn.setBorder(new RoundedBorder(20));
         earBtn.addActionListener(click);        
         this.setLayout(null);
         this.add(earBtn);
@@ -64,7 +59,6 @@ public class GameButtons extends JPanel {
     public void airBut(){
         airBtn = new JButton("Tornado Siren");
         airBtn.setBounds(565, 20, 150, 60);
-        airBtn.setBorder(new RoundedBorder(20));
         airBtn.addActionListener(click);        
         this.setLayout(null);
         this.add(airBtn);
@@ -96,11 +90,11 @@ public class GameButtons extends JPanel {
 
     }
 
-    //This class determins the function of each button
+    //This class determines the function of each button
     private class Clicklistener implements ActionListener{
         public void actionPerformed(ActionEvent e){
 
-            //If the fire button is clicked
+            //checks and performs function
 
             if (e.getSource() == fireBtn){
                 JOptionPane.showMessageDialog(null, "Fire Fighters are now Stronger!!");
