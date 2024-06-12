@@ -99,6 +99,9 @@ public class GameButtons extends JPanel {
     //This class determins the function of each button
     private class Clicklistener implements ActionListener{
         public void actionPerformed(ActionEvent e){
+
+            //If the fire button is clicked
+
             if (e.getSource() == fireBtn){
                 JOptionPane.showMessageDialog(null, "Fire Fighters are now Stronger!!");
                 System.out.println("Fire clicked");
@@ -120,7 +123,7 @@ public class GameButtons extends JPanel {
                 System.out.println("Water clicked");
             }
 
-        }
     }
 
+    }
 }
