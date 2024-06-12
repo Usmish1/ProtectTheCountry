@@ -10,11 +10,11 @@ import java.util.Random;
 public class Game extends JFrame{
 
     //Usman
-    Random rand = new Random();
+    static Random rand = new Random();
     String[] Locations = {"City", "River", "Forest", "Ocean"};
     static Color[] locationColours = {Color.DARK_GRAY, new Color(0, 0, 255), new Color(1, 50, 32), new Color(0, 0, 139)};
     static int[] locationCoordsX = new int[4];
-    int[] locationCoordsY = new int[4];   
+    static int[] locationCoordsY = new int[4];   
 
     int score = 0;
     static Game game;
@@ -56,10 +56,14 @@ public class Game extends JFrame{
 
         setLocationRelativeTo(null); // Center the frame on the screen
 
-
-        for (int i = 0; i < 4; i++){
-            locationCoordsX[i] = rand.nextInt(50, 1200);
-            locationCoordsY[i] = rand.nextInt(50, 600);
+        int e = 0;
+        while (e < 4){
+            locationCoordsX[e] = rand.nextInt(50, 1200);
+            locationCoordsY[e] = rand.nextInt(50, 600);
+            
+            if (locationCoordsX[e] > 700 || locationCoordsX[e] < 530 && locationCoordsY[e] > 400 || locationCoordsY[e] < 280){
+                e++;
+            }
         }
 
         // Ensure that the city is in the middle of the map

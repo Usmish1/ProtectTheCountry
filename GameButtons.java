@@ -99,9 +99,11 @@ public class GameButtons extends JPanel {
             if (e.getSource() == fireBtn){
                 JOptionPane.showMessageDialog(null, "Fire Fighters are now Stronger!!");
                 System.out.println("Fire clicked");
+                Game.buyFireFighters();
             }else if (e.getSource() == earBtn){
                 JOptionPane.showMessageDialog(null, "Earthquake Siren Placed!");
                 System.out.println("Earth clicked");
+                Game.test();
             }else if (e.getSource() == airBtn){
                 JOptionPane.showMessageDialog(null, "Tornado Siren Placed!");
                 System.out.println("Air clicked");
