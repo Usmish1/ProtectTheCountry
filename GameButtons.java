@@ -12,6 +12,7 @@ public class GameButtons extends JPanel {
     JButton earBtn;
     JButton airBtn;
     JButton extBtn;
+    JLabel coinTxt;
     Clicklistener click= new Clicklistener();
 
     //setting up each button to a set size and text
@@ -64,6 +65,12 @@ public class GameButtons extends JPanel {
         this.add(airBtn);
     }
 
+    public void coinText(){
+        coinTxt = new JLabel("$" + Game.coins);
+        coinTxt.setBounds(110, 50, 300, 20);
+        coinTxt.setFont(new Font("Serif", Font.PLAIN, 20));
+    }
+
 
     //this will add all the buttons to be able to be used
     public GameButtons() {
@@ -88,8 +95,12 @@ public class GameButtons extends JPanel {
         exitBut();
         this.add(extBtn);
 
+        coinText();
+        this.add(coinTxt);
+
     }
 
+    //Usman
     //This class determines the function of each button
     private class Clicklistener implements ActionListener{
         public void actionPerformed(ActionEvent e){

@@ -10,14 +10,21 @@ public class Game extends JFrame{
     static Color[] locationColours = {Color.DARK_GRAY, new Color(0, 0, 255), new Color(1, 50, 32), new Color(0, 0, 139)};
     static int[] locationCoordsX = new int[4];
     static int[] locationCoordsY = new int[4];   
+    static int[] locationSizes = {50, 50, 50, 50};
 
     int score = 0;
     static Game game;
     static mapPanel map;
+    static GameButtons gameButtons;
+
+
     static boolean havePurchase = false;
     static boolean haveFighters = false;
     static boolean haveDam = false;
     static String[] events = new String[] {"A Fire Has Destroyed Part of the Forest!", "A Flash Flood Occured!", "Tsunami!!", "Earthquake Imminent!!"};
+
+    static int coins = 5000000;
+    static int lost;
     
 
     public static void main(String[] args){
@@ -46,8 +53,8 @@ public class Game extends JFrame{
         this.setTitle("Protect The Country");
         this.setResizable(false);
         this.setLayout(new BorderLayout());
-        GameButtons gameeButtons = new GameButtons();
-        this.add(gameeButtons, BorderLayout.SOUTH);
+        gameButtons = new GameButtons();
+        this.add(gameButtons, BorderLayout.SOUTH);
     
 
         setLocationRelativeTo(null); // Center the frame on the screen
@@ -86,7 +93,7 @@ public class Game extends JFrame{
                 int y = locationCoordsY[i];
 
                 g.setColor(locationColours[i]);
-                g.fillRect(x, y, 50, 50); // Adjust size and position as needed
+                g.fillRect(x, y, locationSizes[i], locationSizes[i]); // Adjust size and position as needed
                 g.setColor(Color.BLACK);
                 g.drawString(Locations[i], x, y-5); // Label for the area
         }
@@ -124,8 +131,23 @@ public class Game extends JFrame{
 
     public static void startRound(){
         int eventType = rand.nextInt(0, 4);
-        JOptionPane.showMessageDialog(null, events[eventType]);
-    }    
+
+        //Fire event
+        if (eventType == 0){
+            if (haveFighters){
+                lost -= rand.nextInt(500000, 1000000);
+            }
+            else{
+                lost -= rand.nextInt(1000000, 2000000);
+            }
+            
+            JOptionPane.showMessageDialog(null, events[eventType] + "\n You have lost a total of: " + lost);
+            coins += lost;
+            System.out.println(coins);
+            gameButtons.coinTxt.setText("$" + coins);
+        }
+    }
+    
 
 //following is by zohair
     public Game(){
