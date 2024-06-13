@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.text.DecimalFormat;
 import java.util.Random;
 
 public class Game extends JFrame{
@@ -16,6 +17,8 @@ public class Game extends JFrame{
     static Game game;
     static mapPanel map;
     static GameButtons gameButtons;
+
+    public static DecimalFormat formatter = new DecimalFormat("#,###");
 
 
     static boolean havePurchase = false;
@@ -125,26 +128,51 @@ public class Game extends JFrame{
     public static void buyFireFighters(){
         havePurchase = true;
         haveFighters = true;
+        coins -= 2000000;
+        gameButtons.coinTxt.setText("$" + coins);
+        map.repaint();
+        startRound();
+    }
+
+    public static void buyDam(){
+        havePurchase = true;
+        haveDam = true;
+        coins -= 3000000;
+        gameButtons.coinTxt.setText("$" + coins);
+        locationColours[1] = Color.gray;
         map.repaint();
         startRound();
     }
 
     public static void startRound(){
+        locationSizes[0] = 50;
+        locationSizes[1] = 50;
+        locationSizes[2] = 50;
+        locationSizes[3] = 50;
         int eventType = rand.nextInt(0, 4);
+
+        //Add round coins
+        coins += 1000000;
 
         //Fire event
         if (eventType == 0){
             if (haveFighters){
-                lost -= rand.nextInt(500000, 1000000);
+                locationSizes[2] = 25;
+                lost = 250000;
             }
             else{
-                lost -= rand.nextInt(1000000, 2000000);
+                lost = rand.nextInt(1000000, 2000000);
             }
             
-            JOptionPane.showMessageDialog(null, events[eventType] + "\n You have lost a total of: " + lost);
-            coins += lost;
+            JOptionPane.showMessageDialog(null, events[eventType] + "\n You have lost a total of: $" + formatter.format(lost));
+            coins -= lost;
             System.out.println(coins);
-            gameButtons.coinTxt.setText("$" + coins);
+            gameButtons.coinTxt.setText("$" + formatter.format(coins));
+        }
+
+        //Flood
+        if (eventType == 1){
+
         }
     }
     
