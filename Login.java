@@ -7,11 +7,12 @@ import java.io.IOException;
 //zohair
 class Login extends JFrame {
     public static void main(String[] args) {
+
+        //initializing basic visuals for login screen
         JFrame frame = new JFrame("Protect The City!; Login");
 
         final JTextField textField = new JTextField();
         textField.setBounds(125, 120, 150, 20);
-
 
         JButton login = new JButton("Login");
         login.setBounds(150, 150, 95, 30);
@@ -32,6 +33,7 @@ class Login extends JFrame {
         title.setBounds(110, 50, 300, 20);
         title.setFont(new Font("Serif", Font.PLAIN, 20));
 
+        //adding everything onto the frame
         frame.add(entUser);
         frame.add(userName);
         frame.add(title);
@@ -43,6 +45,7 @@ class Login extends JFrame {
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        //getting inputs
         login.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String data = textField.getText();

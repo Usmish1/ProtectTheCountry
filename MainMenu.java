@@ -29,13 +29,8 @@ class MainMenu extends JFrame {
         JLabel title = new JLabel("PROTECT THE CITY!");
         title.setBounds(400, 75, 720, 75);
         title.setFont(new Font("Serif", Font.PLAIN, 52));
-        
-        ImageIcon image1 = new ImageIcon("oldmap2.jpg");
-        JLabel imageLabel = new JLabel(image1);
-        imageLabel.setBounds(0, 0, 1280, 720);
 
-        // Adding components to the frame
-        frame.add(imageLabel);
+        //Adding all of the objects to the frame
         frame.add(statsTab);
         frame.add(title);
         frame.add(helpTab);
@@ -45,7 +40,7 @@ class MainMenu extends JFrame {
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Action listener for the play button
+        //Action listener for the the buttons
         play.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new Game();
@@ -53,21 +48,18 @@ class MainMenu extends JFrame {
             }
         });
 
-        // Action listener for the help button
         helpTab.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 help.main(args);
             }
         });
 
-        // Action listener for the stats button
         statsTab.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 stats.main(args);
             }
         });
 
-        // Action listener for the exit button
         exit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 SwingUtilities.getWindowAncestor((Component) e.getSource()).dispose();
