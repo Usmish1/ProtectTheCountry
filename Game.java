@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
 
-
 public class Game extends JFrame{
 
     //Usman
@@ -69,7 +68,7 @@ public class Game extends JFrame{
 
     }
 
-    //Below is written by Usman. This code is ran at the start of the game to place the locations (city, forest, etc)
+    //Code below is written by Usman. This code is ran at the start of the game to place the locations (city, forest, etc)
     public class mapPanel extends JPanel{
 
         @Override
@@ -96,7 +95,7 @@ public class Game extends JFrame{
         if (havePurchase){
             if (haveFighters){
                 g.setColor(Color.BLACK);
-                g.drawString("Fire Fighters are protecting this area!", locationCoordsX[2]-50, locationCoordsY[2]+65);
+                g.drawString("Fire Fighters are protecting this area!", locationCoordsX[2]-85, locationCoordsY[2]+65);
             }
 
         }
@@ -137,8 +136,7 @@ public class Game extends JFrame{
         this.add(map, BorderLayout.CENTER);
 
         this.setVisible(true);
-
-        
+      
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
