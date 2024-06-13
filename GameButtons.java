@@ -117,8 +117,6 @@ public class GameButtons extends JPanel {
                 JOptionPane.showMessageDialog(null, "Water Dam Built on the Ocean!");
                 System.out.println("Water clicked");
             }
-
-    }
-
+        }
     }
 }
