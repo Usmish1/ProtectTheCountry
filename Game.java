@@ -1,9 +1,5 @@
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.util.Random;
 
 
@@ -22,6 +18,7 @@ public class Game extends JFrame{
     static boolean havePurchase = false;
     static boolean haveFighters = false;
     static boolean haveDam = false;
+    static String[] events = new String[] {"A Fire Has Destroyed Part of the Forest!", "A Flash Flood Occured!", "Tsunami!!", "Earthquake Imminent!!"};
     
 
     public static void main(String[] args){
@@ -118,13 +115,20 @@ public class Game extends JFrame{
         System.out.println("Starting Fire");
     }
 
+    // Usman
     public static void buyFireFighters(){
         havePurchase = true;
         haveFighters = true;
         map.repaint();
+        startRound();
     }
 
+    public static void startRound(){
+        int eventType = rand.nextInt(0, 4);
+        JOptionPane.showMessageDialog(null, events[eventType]);
+    }    
 
+//following is by zohair
     public Game(){
 
         initialization();
@@ -134,10 +138,9 @@ public class Game extends JFrame{
 
         this.setVisible(true);
 
-        //following line of code is by zohair
+        
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        
 
     }
 
