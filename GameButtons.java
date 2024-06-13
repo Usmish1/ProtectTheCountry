@@ -103,7 +103,6 @@ public class GameButtons extends JPanel {
             }else if (e.getSource() == earBtn){
                 JOptionPane.showMessageDialog(null, "Earthquake Siren Placed!");
                 System.out.println("Earth clicked");
-                Game.test();
             }else if (e.getSource() == airBtn){
                 JOptionPane.showMessageDialog(null, "Tornado Siren Placed!");
                 System.out.println("Air clicked");
