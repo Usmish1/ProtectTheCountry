@@ -168,7 +168,9 @@ public class Game extends JFrame{
 
     public static void startRound(){
         if (coins <= 0){
-
+            gameLost lost = new gameLost();
+            lost.main(score);
+            System.exit(0);
         }
 
         locationSizes[0] = 50;

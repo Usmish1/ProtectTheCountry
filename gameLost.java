@@ -24,11 +24,9 @@ public class gameLost {
     }
 
 
-    public static void main(String[] args) {
-        gameLost game = new gameLost();
+    public static void main(int finalScore) {
         String filePath = "logininfo.txt";
         String lastLine = getLastLine(filePath);
-        String finalScore = game.score();
         JOptionPane.showMessageDialog(null, "BANKRUPT!!!\n" +
                 "You have lost the game. \n" +
                 "Your final score is: " + finalScore + "!\n" +
