@@ -7,7 +7,7 @@ public class Game extends JFrame{
 
     //Usman
     static Random rand = new Random();
-    String[] Locations = {"City", "River", "Forest", "Ocean"};
+    String[] Locations = {"Country", "River", "Forest", "Ocean"};
     static Color[] locationColours = {Color.DARK_GRAY, new Color(0, 0, 255), new Color(1, 50, 32), new Color(0, 0, 139)};
     static int[] locationCoordsX = new int[4];
     static int[] locationCoordsY = new int[4];   
@@ -76,13 +76,13 @@ public class Game extends JFrame{
             }
         }
 
-        // Ensure that the city is in the middle of the map
+        // Ensure that the Country is in the middle of the map
         locationCoordsX[0] = 590;
         locationCoordsY[0] = 310;
 
     }
 
-    //Code below is written by Usman. This code is ran at the start of the game to place the locations (city, forest, etc)
+    //Code below is written by Usman. This code is ran at the start of the game to place the locations (Country, forest, etc)
     public class mapPanel extends JPanel{
 
         @Override

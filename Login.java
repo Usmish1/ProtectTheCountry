@@ -9,7 +9,7 @@ class Login extends JFrame {
     public static void main(String[] args) {
 
         //initializing basic visuals for login screen
-        JFrame frame = new JFrame("Protect The City!; Login");
+        JFrame frame = new JFrame("Protect The Country!; Login");
 
         final JTextField textField = new JTextField();
         textField.setBounds(125, 120, 150, 20);
@@ -29,8 +29,8 @@ class Login extends JFrame {
         userName.setBounds(130, 190, 300, 20);
 
         JLabel title;
-        title = new JLabel("PROTECT THE CITY!");
-        title.setBounds(110, 50, 300, 20);
+        title = new JLabel("PROTECT THE COUNTRY!");
+        title.setBounds(85, 50, 300, 20);
         title.setFont(new Font("Serif", Font.PLAIN, 20));
 
         //adding everything onto the frame

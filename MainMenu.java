@@ -7,7 +7,7 @@ class MainMenu extends JFrame {
 
     // Main method to set up the main menu interface
     public void main(String[] args) {
-        JFrame frame = new JFrame("PROTECTTHECITY");
+        JFrame frame = new JFrame("PROTECTTHECOUNTRY");
         frame.setSize(1280, 720);
         frame.setLayout(null);
 
@@ -26,8 +26,8 @@ class MainMenu extends JFrame {
         statsTab.setBounds(465, 550, 360, 120);
         statsTab.setFont(new Font("Comic Sans MS", Font.PLAIN, 26));
 
-        JLabel title = new JLabel("PROTECT THE CITY!");
-        title.setBounds(400, 75, 720, 75);
+        JLabel title = new JLabel("PROTECT THE COUNTRY!");
+        title.setBounds(350, 75, 720, 75);
         title.setFont(new Font("Serif", Font.PLAIN, 52));
 
         //Adding all of the objects to the frame
