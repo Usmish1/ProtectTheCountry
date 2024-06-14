@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.text.DecimalFormat;
 
 
 //following code is from zohair
@@ -14,7 +15,7 @@ public class GameButtons extends JPanel {
     JButton airBtn;
     JButton extBtn;
     JLabel coinTxt;
-
+    DecimalFormat formatter = new DecimalFormat("#,###");
     Clicklistener click= new Clicklistener();
 
     //setting up each button to a set size and text
@@ -68,7 +69,7 @@ public class GameButtons extends JPanel {
     }
 
     public void coinText(){
-        coinTxt = new JLabel("$" + Game.coins);
+        coinTxt = new JLabel("$" + formatter.format(Game.coins));
         coinTxt.setBounds(110, 50, 300, 20);
         coinTxt.setFont(new Font("Serif", Font.PLAIN, 20));
     }
@@ -120,6 +121,7 @@ public class GameButtons extends JPanel {
             }else if (e.getSource() == rivBtn){
                 JOptionPane.showMessageDialog(null, "River Dam Built!");
                 System.out.println("River clicked");
+                Game.buyDam();
             }else if (e.getSource() == extBtn){
                 System.out.println("Exit clicked");
                 JOptionPane.showMessageDialog(null, "Exiting the Program.");
