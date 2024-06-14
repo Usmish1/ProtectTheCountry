@@ -33,7 +33,6 @@ public class Game extends JFrame{
 
     static int coins = 5000000;
     static int lost;
-    
 
     public static void main(String[] args){
         

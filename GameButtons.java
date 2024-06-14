@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.text.DecimalFormat;
 
+
 //following code is from zohair
 public class GameButtons extends JPanel {
 
@@ -82,7 +83,6 @@ public class GameButtons extends JPanel {
         coinTxt.setFont(new Font("Serif", Font.PLAIN, 20));
     }
 
-
     //this will add all the buttons to be able to be used
     public GameButtons() {
 
@@ -111,7 +111,6 @@ public class GameButtons extends JPanel {
 
         coinText();
         this.add(coinTxt);
-
     }
 
     //Usman
