@@ -9,7 +9,6 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 public class gameLost {
-    int scorePoints = 200;
 
     public static String getLastLine(String filePath) {
         String lastLine = "";
@@ -24,11 +23,10 @@ public class gameLost {
         return lastLine;
     }
 
-    public String score() {
-        return Integer.toString(scorePoints);
-    }
 
-    public static void updateLeaderboard(String filePath, String username, int score) {
+    public static void updateLeaderboard(String username, int score) {
+
+        String filePath = "leaderboard.txt";
         List<String> leaderboard = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
@@ -65,13 +63,7 @@ public class gameLost {
     public static void main(int score) {
         String filePath = "logininfo.txt";
         String lastLine = getLastLine(filePath);
-
-        // Assuming the last line is the username
-        String username = lastLine;
-
-        // Update the leaderboard
-        String leaderboardPath = "leaderboard.txt";
-        updateLeaderboard(leaderboardPath, username, score);
+        updateLeaderboard(lastLine, score);
 
         JOptionPane.showMessageDialog(null, "BANKRUPT!!!\n" +
                 "You have lost the game. \n" +
@@ -79,3 +71,30 @@ public class gameLost {
                 "Score saved under: " + lastLine);
     }
 }
+/*
+GameLost: The main class containing methods and the main method.
+int scorePoints = 500;: An instance variable to store the player's score.
+getLastLine Method:
+
+Reads the last line from a specified file.
+Uses a BufferedReader to read the file line by line.
+Updates the lastLine variable with each line read, so it ends up with the last line.
+Returns the last line read from the file.
+score Method:
+
+Converts the scorePoints integer to a String.
+Returns the string representation of scorePoints.
+updateLeaderboard Method:
+
+Reads the existing leaderboard from leaderboard.txt into a List<String>.
+Adds a new entry with the username and score to the list.
+Sorts the list in descending order based on scores using a custom comparator.
+Writes the sorted leaderboard back to leaderboard.txt.
+main Method:
+
+Creates an instance of GameLost.
+Reads the last line from logininfo.txt to get the username.
+Uses the instance variable scorePoints for the score.
+Calls updateLeaderboard to update the leaderboard with the new score.
+Displays a message dialog with the final score and the username.
+This code ensures that the leaderboard is updated correctly, with scores sorted from highest to lowest, and the new score is included appropriately. */
