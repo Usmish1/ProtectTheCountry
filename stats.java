@@ -8,11 +8,13 @@ import javax.swing.JOptionPane;
 //zohair
 public class stats {
 
+    //the main calls the methods
     public static void main(String[] args) {
         List<String> userNames = readUserNamesFromFile("logininfo.txt");
         displayUserNamesInMessageBox(userNames);
     }
 
+    //this method gets the usernames
     private static List<String> readUserNamesFromFile(String fileName) {
         List<String> userNames = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
@@ -26,6 +28,7 @@ public class stats {
         return userNames;
     }
 
+    //this method prints the usernames
     private static void displayUserNamesInMessageBox(List<String> userNames) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < userNames.size(); i++) {

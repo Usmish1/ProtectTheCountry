@@ -25,7 +25,6 @@ public class Game extends JFrame{
 
     static int coins = 5000000;
     static int lost;
-    
 
     public static void main(String[] args){
         
@@ -140,7 +139,6 @@ public class Game extends JFrame{
             else{
                 lost -= rand.nextInt(1000000, 2000000);
             }
-            
             JOptionPane.showMessageDialog(null, events[eventType] + "\n You have lost a total of: " + lost);
             coins += lost;
             System.out.println(coins);
