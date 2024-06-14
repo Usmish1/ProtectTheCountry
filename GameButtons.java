@@ -14,6 +14,7 @@ public class GameButtons extends JPanel {
     JButton airBtn;
     JButton extBtn;
     JLabel coinTxt;
+    JButton passBtn;
     DecimalFormat formatter = new DecimalFormat("#,###");
     Clicklistener click= new Clicklistener();
 
@@ -25,6 +26,14 @@ public class GameButtons extends JPanel {
         extBtn.addActionListener(click);
         this.setLayout(null);
         this.add(watBtn);
+    }
+
+    public void passBut(){
+        passBtn = new JButton("PASS");
+        passBtn.setBounds(440, 20, 120, 60);
+        passBtn.addActionListener(click);
+        this.setLayout(null);
+        this.add(passBtn);
     }
 
     public void waterBut(){
@@ -79,6 +88,9 @@ public class GameButtons extends JPanel {
 
         this.setPreferredSize(new Dimension(1280, 100));
 
+        passBut();
+        this.add(passBtn);
+
         waterBut();
         this.add(watBtn);
 
@@ -116,6 +128,7 @@ public class GameButtons extends JPanel {
             }else if (e.getSource() == earBtn){
                 JOptionPane.showMessageDialog(null, "Earthquake Siren Placed!");
                 System.out.println("Earth clicked");
+                Game.buyEarthquake();
             }else if (e.getSource() == airBtn){
                 JOptionPane.showMessageDialog(null, "Tornado Siren Placed!");
                 System.out.println("Air clicked");
@@ -130,6 +143,8 @@ public class GameButtons extends JPanel {
             }else if (e.getSource() == watBtn){
                 JOptionPane.showMessageDialog(null, "Water Dam Built on the Ocean!");
                 System.out.println("Water clicked");
+            }else if (e.getSource() == passBtn){
+                Game.startRound();
             }
         }
     }

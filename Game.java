@@ -13,7 +13,8 @@ public class Game extends JFrame{
     static int[] locationCoordsY = new int[4];   
     static int[] locationSizes = {50, 50, 50, 50};
 
-    int score = 0;
+
+    static int score = 0;
     static Game game;
     static mapPanel map;
     static GameButtons gameButtons;
@@ -24,7 +25,11 @@ public class Game extends JFrame{
     static boolean havePurchase = false;
     static boolean haveFighters = false;
     static boolean haveDam = false;
-    static String[] events = new String[] {"A Fire Has Destroyed Part of the Forest!", "A Flash Flood Occured!", "Tsunami!!", "Earthquake Imminent!!"};
+    static boolean haveEarthquakeAlarm = false;
+    static boolean haveTsunamiAlarm = false;
+    static boolean haveTornadoSiren = false;
+
+    static String[] events = new String[] {"A Fire Has Destroyed Part of the Forest!", "A Flash Flood Occured!", "Tsunami!!", "Earthquake Imminent!!", "Tornado!!!"};
 
     static int coins = 5000000;
     static int lost;
@@ -108,6 +113,11 @@ public class Game extends JFrame{
                 g.drawString("Fire Fighters are protecting this area!", locationCoordsX[2]-85, locationCoordsY[2]+65);
             }
 
+            if (haveEarthquakeAlarm){
+                g.setColor(Color.BLACK);
+                g.drawString("Earthquake Alarm on Standby", 550, 290);
+            }
+
         }
 
             for (int i = 0; i < 4; i++){
@@ -129,6 +139,7 @@ public class Game extends JFrame{
         havePurchase = true;
         haveFighters = true;
         coins -= 2000000;
+        score += 25;
         gameButtons.coinTxt.setText("$" + coins);
         map.repaint();
         startRound();
@@ -138,23 +149,40 @@ public class Game extends JFrame{
         havePurchase = true;
         haveDam = true;
         coins -= 3000000;
+        score += 25;
         gameButtons.coinTxt.setText("$" + coins);
         locationColours[1] = Color.gray;
         map.repaint();
         startRound();
     }
 
+    public static void buyEarthquake(){
+        havePurchase = true;
+        haveEarthquakeAlarm = true;
+        coins -= 1000000;
+        score += 25;
+        gameButtons.coinTxt.setText("$" + coins);
+        map.repaint();
+        startRound();
+
+    }
+
     public static void startRound(){
+        if (coins <= 0){
+            
+        }
+
         locationSizes[0] = 50;
         locationSizes[1] = 50;
         locationSizes[2] = 50;
         locationSizes[3] = 50;
-        int eventType = rand.nextInt(0, 4);
-
+        int eventType = rand.nextInt(0, 5);
+    
         //Add round coins
         coins += 1000000;
+        gameButtons.coinTxt.setText("$" + formatter.format(coins));
 
-        //Fire event
+        //Fire event - Usman
         if (eventType == 0){
             if (haveFighters){
                 locationSizes[2] = 25;
@@ -168,14 +196,68 @@ public class Game extends JFrame{
             coins -= lost;
             System.out.println(coins);
             gameButtons.coinTxt.setText("$" + formatter.format(coins));
+            score += 50;
         }
 
-        //Flood
+        //Flood - Usman
         if (eventType == 1){
+            if (haveDam){
+                lost = 450000;
+                JOptionPane.showMessageDialog(null, "Your dam protected your country! Only minor repairs are needed" + "\n You have lost a total of: $" + formatter.format(lost));
+                score += 50;
+            }
+            else{
+                lost = rand.nextInt(2000000, 2500000);
+                JOptionPane.showMessageDialog(null, events[eventType] + "\n You have lost a total of: $" + formatter.format(lost));
+                coins -= lost;
+                gameButtons.coinTxt.setText("$" + formatter.format(coins));
+                score += 50;
+            }
+        }
 
+        //Tsunami - Usman
+        if (eventType == 2){
+            if (haveTsunamiAlarm){
+                lost = 1000000;
+                JOptionPane.showMessageDialog(null, "A Tsunami Occured! Your alarm protect thousands of people! \n You have lost a total of $" + formatter.format(lost));
+            }
+            else{
+                lost = rand.nextInt(1500000, 2500000);
+                 JOptionPane.showMessageDialog(null, events[eventType] + "\n You have lost a total of: $" + formatter.format(lost));
+            }
+            coins -= lost;
+            gameButtons.coinTxt.setText("$" + formatter.format(coins));
+            score += 50;
+    }
+
+        //Earthquake 
+        if (eventType == 3){
+            if (haveEarthquakeAlarm){
+                lost = 1000000;
+                JOptionPane.showMessageDialog(null, "An Earthquake Occured! Your alarm protect thousands of people! \n You have lost a total of $" + formatter.format(lost));
+            }
+            else{
+                lost = 2000000;
+                JOptionPane.showMessageDialog(null, "A Tsunami Occured! \n You have lost a total of $" + formatter.format(lost));
+            }
+            coins -= lost;
+            gameButtons.coinTxt.setText("$" + formatter.format(coins));
+            score += 50;
+        }
+
+        if (eventType == 4){
+            if (haveTornadoSiren){
+                lost = 1000000;
+            }
+            else{
+                lost = 2000000;
+                JOptionPane.showMessageDialog(null, "A Tornado Occured! \n You have lost a total of $" + formatter.format(lost));
+            }
+            coins -= lost;
+            gameButtons.coinTxt.setText("$" + formatter.format(coins));
+            score += 50;
         }
     }
-    
 
 //following is by zohair
     public Game(){
