@@ -10,7 +10,7 @@ public class stats {
 
     //the main calls the methods
     public static void main(String[] args) {
-        List<String> userNames = readUserNamesFromFile("logininfo.txt");
+        List<String> userNames = readUserNamesFromFile("leaderboard.txt");
         displayUserNamesInMessageBox(userNames);
     }
 
@@ -34,6 +34,6 @@ public class stats {
         for (int i = 0; i < userNames.size(); i++) {
             sb.append((i + 1) + ". ").append(userNames.get(i)).append("\n");
         }
-        JOptionPane.showMessageDialog(null, sb.toString(), "Stats", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, sb.toString(), "Leaderboard", JOptionPane.INFORMATION_MESSAGE);
     }
 }
