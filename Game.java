@@ -168,7 +168,7 @@ public class Game extends JFrame{
 
     public static void startRound(){
         if (coins <= 0){
-            
+
         }
 
         locationSizes[0] = 50;
@@ -226,7 +226,7 @@ public class Game extends JFrame{
             }
             coins -= lost;
             gameButtons.coinTxt.setText("$" + formatter.format(coins));
-            score += 50;
+            score += 75;
     }
 
         //Earthquake 
@@ -241,7 +241,7 @@ public class Game extends JFrame{
             }
             coins -= lost;
             gameButtons.coinTxt.setText("$" + formatter.format(coins));
-            score += 50;
+            score += 75;
         }
 
         if (eventType == 4){
