@@ -131,17 +131,19 @@ public class GameButtons extends JPanel {
             }else if (e.getSource() == airBtn){
                 JOptionPane.showMessageDialog(null, "Tornado Siren Placed!");
                 System.out.println("Air clicked");
+                Game.buyTornadoAlarm();
             }else if (e.getSource() == rivBtn){
                 JOptionPane.showMessageDialog(null, "River Dam Built!");
                 System.out.println("River clicked");
                 Game.buyDam();
+            }else if (e.getSource() == watBtn){
+                JOptionPane.showMessageDialog(null, "Tsunami Alarms Built!");
+                System.out.println("Water clicked");
+                Game.buyTsunamiAlarm();
             }else if (e.getSource() == extBtn){
                 System.out.println("Exit clicked");
                 JOptionPane.showMessageDialog(null, "Exiting the Program.");
                 SwingUtilities.getWindowAncestor((Component) e.getSource()).dispose();
-            }else if (e.getSource() == watBtn){
-                JOptionPane.showMessageDialog(null, "Water Dam Built on the Ocean!");
-                System.out.println("Water clicked");
             }else if (e.getSource() == passBtn){
                 Game.startRound();
             }

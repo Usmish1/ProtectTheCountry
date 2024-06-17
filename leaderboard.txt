@@ -1,3 +1,5 @@
 Bob 1000
 zohair 500
+bingleson 225
 bingleson 200
+bingleson 175

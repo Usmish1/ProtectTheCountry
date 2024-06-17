@@ -117,6 +117,17 @@ public class Game extends JFrame{
                 g.drawString("Earthquake Alarm on Standby", 550, 290);
             }
 
+            if (haveTornadoSiren){
+                g.setColor(Color.BLACK);
+                g.drawString("Tornado Siren", 570, 380);
+            }
+
+            if (haveTsunamiAlarm){
+                g.setColor(Color.BLACK);
+                g.drawString("Tsunami Alarm", locationCoordsX[3]-50, locationCoordsY[3]+65);
+            }
+
+
         }
 
             for (int i = 0; i < 4; i++){
@@ -126,7 +137,7 @@ public class Game extends JFrame{
 
     }
 
-    //Written by Usman. Used randomly at the start of a round.
+    //Written by Usman. Not currently used.
     public static void startFire(){
         locationColours[2] = new Color(255, 165, 0);
         map.repaint();
@@ -166,6 +177,26 @@ public class Game extends JFrame{
 
     }
 
+    public static void buyTsunamiAlarm(){
+        havePurchase = true;
+        haveTsunamiAlarm = true;
+        coins -= 1000000;
+        score += 25;
+        gameButtons.coinTxt.setText("$" + coins);
+        map.repaint();
+        startRound();
+    }
+
+    public static void buyTornadoAlarm(){
+        havePurchase = true;
+        haveTornadoSiren = true;
+        coins -= 1000000;
+        score += 25;
+        gameButtons.coinTxt.setText("$" + coins);
+        map.repaint();
+        startRound();
+    }
+
     public static void startRound(){
         if (coins <= 0){
             gameLost lost = new gameLost();
@@ -195,7 +226,7 @@ public class Game extends JFrame{
             
             JOptionPane.showMessageDialog(null, events[eventType] + "\n You have lost a total of: $" + formatter.format(lost));
             coins -= lost;
-            System.out.println(coins);
+            System.out.println(formatter.format(coins));
             gameButtons.coinTxt.setText("$" + formatter.format(coins));
             score += 50;
         }
@@ -264,7 +295,7 @@ public class Game extends JFrame{
     public Game(){
 
         initialization();
-        createBackground();
+        //createBackground();
         map = new mapPanel();
         this.add(map, BorderLayout.CENTER);
 
