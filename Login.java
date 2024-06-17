@@ -33,6 +33,8 @@ class Login extends JFrame {
         title.setBounds(85, 50, 300, 20);
         title.setFont(new Font("Serif", Font.PLAIN, 20));
 
+        frame.setLocationRelativeTo(null);
+
         //adding everything onto the frame
         frame.add(entUser);
         frame.add(userName);

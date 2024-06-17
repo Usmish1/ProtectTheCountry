@@ -296,7 +296,7 @@ public class Game extends JFrame{
             score += 75;
     }
 
-        //Earthquake 
+        //Earthquake  - Usman
         if (eventType == 3){
             if (haveEarthquakeAlarm){
                 lost = 1000000;
@@ -313,6 +313,7 @@ public class Game extends JFrame{
             score += 75;
         }
 
+        //Tornado - Usman
         if (eventType == 4){
             if (haveTornadoSiren){
                 lost = 1000000;
@@ -339,7 +340,6 @@ public class Game extends JFrame{
     public Game(){
 
         initialization();
-        //createBackground();
         map = new mapPanel();
         this.add(map, BorderLayout.CENTER);
 
