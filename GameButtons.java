@@ -121,25 +121,45 @@ public class GameButtons extends JPanel {
             //checks and performs function
 
             if (e.getSource() == fireBtn){
-                JOptionPane.showMessageDialog(null, "Fire Fighters are now Stronger!!");
                 System.out.println("Fire clicked");
-                Game.buyFireFighters();
+                if (Game.coins > 2000000){
+                    JOptionPane.showMessageDialog(null, "Fire Fighters purchased!");
+                    Game.buyFireFighters();
+                }else{
+                    JOptionPane.showMessageDialog(null, "You can't afford that!");
+                }
             }else if (e.getSource() == earBtn){
-                JOptionPane.showMessageDialog(null, "Earthquake Siren Placed!");
-                System.out.println("Earth clicked");
-                Game.buyEarthquake();
+                if (Game.coins > 1000000){
+                    JOptionPane.showMessageDialog(null, "Earthquake Siren Placed!");
+                    System.out.println("Earth clicked");
+                    Game.buyEarthquake();
+                }else{
+                    JOptionPane.showMessageDialog(null, "You can't afford that!");
+                }
             }else if (e.getSource() == airBtn){
-                JOptionPane.showMessageDialog(null, "Tornado Siren Placed!");
-                System.out.println("Air clicked");
-                Game.buyTornadoAlarm();
+                if (Game.coins > 1000000){
+                    JOptionPane.showMessageDialog(null, "Tornado Siren Placed!");
+                    System.out.println("Air clicked");
+                    Game.buyTornadoAlarm();
+                }else{
+                    JOptionPane.showMessageDialog(null, "You can't afford that!");
+                }
             }else if (e.getSource() == rivBtn){
-                JOptionPane.showMessageDialog(null, "River Dam Built!");
-                System.out.println("River clicked");
-                Game.buyDam();
+                if (Game.coins > 3000000){
+                    JOptionPane.showMessageDialog(null, "River Dam Built!");
+                    System.out.println("River clicked");
+                    Game.buyDam();
+                }else{
+                    JOptionPane.showMessageDialog(null, "You can't afford that!");
+                }
             }else if (e.getSource() == watBtn){
-                JOptionPane.showMessageDialog(null, "Tsunami Alarms Built!");
-                System.out.println("Water clicked");
-                Game.buyTsunamiAlarm();
+                if (Game.coins > 1000000){
+                    JOptionPane.showMessageDialog(null, "Tsunami Alarms Built!");
+                    System.out.println("Water clicked");
+                    Game.buyTsunamiAlarm();
+                }else{
+                    JOptionPane.showMessageDialog(null, "You can't afford that!");
+                }
             }else if (e.getSource() == extBtn){
                 System.out.println("Exit clicked");
                 JOptionPane.showMessageDialog(null, "Exiting the Program.");

@@ -82,6 +82,12 @@ public class Game extends JFrame{
 
         @Override
         protected void paintComponent(Graphics g) {
+            if (coins <= 0){
+                System.out.println("Lost");
+                gameLost lost = new gameLost();
+                lost.main(score);
+                System.exit(0);
+            }
             super.paintComponent(g);
             setBackground(Color.GREEN); // Green background for the map
 
