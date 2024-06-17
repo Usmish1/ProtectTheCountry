@@ -18,6 +18,8 @@ public class Game extends JFrame{
     static int[] locationCoordsX = new int[4];
     static int[] locationCoordsY = new int[4];   
     static int[] locationSizes = {50, 50, 50, 50};
+    static int round = 0;
+    static double multiplier = 1;
 
 
     static int score = 0;
@@ -37,8 +39,8 @@ public class Game extends JFrame{
 
     static String[] events = new String[] {"A Fire Has Destroyed Part of the Forest!", "A Flash Flood Occured!", "Tsunami!!", "Earthquake Imminent!!", "Tornado!!!"};
 
-    static int coins = 5000000;
-    static int lost;
+    static double coins = 5000000;
+    static double lost;
 
     public static void main(String[] args){
         
@@ -224,6 +226,9 @@ public class Game extends JFrame{
 
     // Usman
     public static void startRound(){
+        round += 1;
+        multiplier = round*0.1;
+        multiplier += 1;
         if (coins <= 0){
             gameLost lost = new gameLost();
             lost.main(score);
@@ -237,7 +242,7 @@ public class Game extends JFrame{
         int eventType = rand.nextInt(0, 5);
     
         //Add round coins
-        coins += 1000000;
+        coins += 1000000*multiplier;
         gameButtons.coinTxt.setText("$" + formatter.format(coins));
 
         //Fire event - Usman
@@ -266,6 +271,7 @@ public class Game extends JFrame{
             }
             else{
                 lost = rand.nextInt(2000000, 2500000);
+                lost = lost*multiplier;
                 JOptionPane.showMessageDialog(null, events[eventType] + "\n You have lost a total of: $" + formatter.format(lost));
                 coins -= lost;
                 gameButtons.coinTxt.setText("$" + formatter.format(coins));
@@ -277,10 +283,12 @@ public class Game extends JFrame{
         if (eventType == 2){
             if (haveTsunamiAlarm){
                 lost = 1000000;
+                lost = lost*multiplier;
                 JOptionPane.showMessageDialog(null, "A Tsunami Occured! Your alarm protected thousands of people! \n You have lost a total of $" + formatter.format(lost));
             }
             else{
                 lost = rand.nextInt(1500000, 2500000);
+                lost = lost*multiplier;
                  JOptionPane.showMessageDialog(null, events[eventType] + "\n You have lost a total of: $" + formatter.format(lost));
             }
             coins -= lost;
@@ -292,10 +300,12 @@ public class Game extends JFrame{
         if (eventType == 3){
             if (haveEarthquakeAlarm){
                 lost = 1000000;
+                lost = lost*multiplier;
                 JOptionPane.showMessageDialog(null, "An Earthquake Occured! Your alarm protect thousands of people! \n You have lost a total of $" + formatter.format(lost));
             }
             else{
                 lost = 2000000;
+                lost = lost*multiplier;
                 JOptionPane.showMessageDialog(null, "A Tsunami Occured! \n You have lost a total of $" + formatter.format(lost));
             }
             coins -= lost;
@@ -306,14 +316,22 @@ public class Game extends JFrame{
         if (eventType == 4){
             if (haveTornadoSiren){
                 lost = 1000000;
+                lost = lost*multiplier;
             }
             else{
                 lost = 2000000;
-                JOptionPane.showMessageDialog(null, "A Tornado Occured! \n You have lost a total of $" + formatter.format(lost));
+                lost = lost*multiplier;
             }
+            JOptionPane.showMessageDialog(null, "A Tornado Occured! \n You have lost a total of $" + formatter.format(lost));
             coins -= lost;
             gameButtons.coinTxt.setText("$" + formatter.format(coins));
             score += 50;
+        }
+
+        if (coins <= 0){
+            gameLost lost = new gameLost();
+            lost.main(score);
+            System.exit(0);
         }
     }
 

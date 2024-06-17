@@ -165,6 +165,7 @@ public class GameButtons extends JPanel {
                 JOptionPane.showMessageDialog(null, "Exiting the Program.");
                 SwingUtilities.getWindowAncestor((Component) e.getSource()).dispose();
             }else if (e.getSource() == passBtn){
+                Game.coins += 1000000;
                 Game.startRound();
                 //Game.test();
             }
