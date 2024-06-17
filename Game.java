@@ -271,7 +271,7 @@ public class Game extends JFrame{
         if (eventType == 2){
             if (haveTsunamiAlarm){
                 lost = 1000000;
-                JOptionPane.showMessageDialog(null, "A Tsunami Occured! Your alarm protect thousands of people! \n You have lost a total of $" + formatter.format(lost));
+                JOptionPane.showMessageDialog(null, "A Tsunami Occured! Your alarm protected thousands of people! \n You have lost a total of $" + formatter.format(lost));
             }
             else{
                 lost = rand.nextInt(1500000, 2500000);
