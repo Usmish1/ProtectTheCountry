@@ -2,7 +2,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.text.DecimalFormat;
 import java.util.Random;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
+
+// @author Usman
+// Main game/visuals code.
 public class Game extends JFrame{
 
     //Usman
@@ -40,20 +46,9 @@ public class Game extends JFrame{
 
     }
 
-    //Written by Usman.
-    public void createBackground(){
-
-        JPanel backgroundPanel = new JPanel();
-        backgroundPanel.setLayout(null);
-        backgroundPanel.setBackground(Color.gray);
-        backgroundPanel.setVisible(true);
-        this.add(backgroundPanel);
-        this.setVisible(true);
-
-    }
 
 
-    //Below is writting by Usman. This code is ran when the Game class is created.
+    //Usman - This code is ran when the Game class is created and changes settings for the window and then generates a random map.
     public void initialization(){
         this.setSize(1280, 800);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -137,12 +132,6 @@ public class Game extends JFrame{
 
     }
 
-    //Written by Usman. Not currently used.
-    public static void startFire(){
-        locationColours[2] = new Color(255, 165, 0);
-        map.repaint();
-        System.out.println("Starting Fire");
-    }
 
     // Usman
     public static void buyFireFighters(){
@@ -155,6 +144,33 @@ public class Game extends JFrame{
         startRound();
     }
 
+    // Testing Purposes - Usman 
+    // https://stackoverflow.com/questions/24104313/how-do-i-make-a-delay-in-java
+    public static void test(){
+        
+            
+        final ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
+        executorService.scheduleAtFixedRate(Game::tester, 0, 50, TimeUnit.MILLISECONDS);
+        
+    }
+
+    public static void tester(){
+        int e = 0;
+        while (e < 4){
+            locationCoordsX[e] = rand.nextInt(50, 1200);
+            locationCoordsY[e] = rand.nextInt(50, 600);
+            
+            if (locationCoordsX[e] > 700 || locationCoordsX[e] < 530 && locationCoordsY[e] > 400 || locationCoordsY[e] < 200){
+                e++;
+            }
+        }
+        locationCoordsX[0] = 590;
+        locationCoordsY[0] = 310;
+        map.repaint();
+        System.out.println(locationCoordsX);
+    }
+
+    // Usman
     public static void buyDam(){
         havePurchase = true;
         haveDam = true;
@@ -166,6 +182,7 @@ public class Game extends JFrame{
         startRound();
     }
 
+    // Usman
     public static void buyEarthquake(){
         havePurchase = true;
         haveEarthquakeAlarm = true;
@@ -177,6 +194,7 @@ public class Game extends JFrame{
 
     }
 
+    // Usman
     public static void buyTsunamiAlarm(){
         havePurchase = true;
         haveTsunamiAlarm = true;
@@ -187,6 +205,7 @@ public class Game extends JFrame{
         startRound();
     }
 
+    // Usman
     public static void buyTornadoAlarm(){
         havePurchase = true;
         haveTornadoSiren = true;
@@ -197,6 +216,7 @@ public class Game extends JFrame{
         startRound();
     }
 
+    // Usman
     public static void startRound(){
         if (coins <= 0){
             gameLost lost = new gameLost();
@@ -234,8 +254,8 @@ public class Game extends JFrame{
         //Flood - Usman
         if (eventType == 1){
             if (haveDam){
-                lost = 450000;
-                JOptionPane.showMessageDialog(null, "Your dam protected your country! Only minor repairs are needed" + "\n You have lost a total of: $" + formatter.format(lost));
+                lost = 0;
+                JOptionPane.showMessageDialog(null, "Your dam protected your country! No repairs are needed!");
                 score += 50;
             }
             else{

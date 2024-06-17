@@ -31,47 +31,47 @@ public class GameButtons extends JPanel {
 
     public void passBut(){
         passBtn = new JButton("PASS");
-        passBtn.setBounds(440, 20, 120, 60);
+        passBtn.setBounds(400, 20, 120, 60);
         passBtn.addActionListener(click);
         this.setLayout(null);
         this.add(passBtn);
     }
 
     public void waterBut(){
-        watBtn = new JButton("Water Dam");
-        watBtn.setBounds(1140, 20, 120, 60);
+        watBtn = new JButton("Tsunami Alarm $1M");
+        watBtn.setBounds(1110, 20, 150, 60);
         watBtn.addActionListener(click);
         this.setLayout(null);
         this.add(watBtn);
     }
 
     public void riverBut(){
-        rivBtn = new JButton("River Dam");
-        rivBtn.setBounds(1015, 20, 120, 60);
+        rivBtn = new JButton("River Dam $3M");
+        rivBtn.setBounds(985, 20, 120, 60);
         rivBtn.addActionListener(click);
         this.setLayout(null);
         this.add(rivBtn);
     }
 
     public void fireBut(){
-        fireBtn = new JButton("Firefighters");
-        fireBtn.setBounds(890, 20, 120, 60);
+        fireBtn = new JButton("Firefighters $2M");
+        fireBtn.setBounds(850, 20, 130, 60);
         fireBtn.addActionListener(click);
         this.setLayout(null);
         this.add(fireBtn);
     }
 
     public void earthBut(){
-        earBtn = new JButton("Earthquake Alarm");
-        earBtn.setBounds(720, 20, 165, 60);
+        earBtn = new JButton("Earthquake Alarm $1M");
+        earBtn.setBounds(680, 20, 165, 60);
         earBtn.addActionListener(click);        
         this.setLayout(null);
         this.add(earBtn);
     }
 
     public void airBut(){
-        airBtn = new JButton("Tornado Siren");
-        airBtn.setBounds(565, 20, 150, 60);
+        airBtn = new JButton("Tornado Siren $1M");
+        airBtn.setBounds(525, 20, 150, 60);
         airBtn.addActionListener(click);        
         this.setLayout(null);
         this.add(airBtn);
@@ -146,6 +146,7 @@ public class GameButtons extends JPanel {
                 SwingUtilities.getWindowAncestor((Component) e.getSource()).dispose();
             }else if (e.getSource() == passBtn){
                 Game.startRound();
+                //Game.test();
             }
         }
     }
